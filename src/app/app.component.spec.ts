@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { JokeService } from './joke.service';
+import { JokeComponent } from './joke/joke.component';
 import { ComponentFixture } from "@angular/core/testing";
 import { DebugElement } from "@angular/core";
 import { CapitalizePipe } from './capitalize.pipe';
@@ -17,8 +18,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ HttpModule ],
-      declarations: [ AppComponent ],
-      providers:  [ JokeService ]
+      declarations: [ AppComponent, JokeComponent ],
+      providers: [ JokeService ]
     }).compileComponents();
   }));
 

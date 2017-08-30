@@ -9,14 +9,8 @@ import { JokeService } from './joke.service';
 export class AppComponent implements OnInit {
   
   title = 'Chuck Norris Jokes';
-
-  constructor(private jokeService: JokeService){}
-
+  constructor(){}
   ngOnInit(): void {
-    this.getJoke()
   }
 
-  getJoke() {
-    // this.jokeService.getJoke().subscribe(response => console.log(response));
-  } 
 }
