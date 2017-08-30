@@ -1,13 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { JokeService } from './joke.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ HttpModule ],
       declarations: [
         AppComponent
       ],
+      providers:  [ JokeService ]
     }).compileComponents();
   }));
 
