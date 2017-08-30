@@ -2,6 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
 
 import { JokeService } from './joke.service';
+import { async } from "@angular/core/testing";
 
 describe('JokeService', () => {
   beforeEach(() => {
@@ -11,8 +12,8 @@ describe('JokeService', () => {
     });
   });
 
-  it('should be created', inject([JokeService], (service: JokeService) => {
+  it('should be created', async(inject([JokeService], (service: JokeService) => {
     expect(service).toBeTruthy();
-    service.getJoke().subscribe(response => console.log(response));
-  }));
+    // service.getJoke().subscribe(response => console.log(response));
+  })));
 });

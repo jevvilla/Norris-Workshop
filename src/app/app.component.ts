@@ -17,6 +17,6 @@ export class AppComponent implements OnInit {
   }
 
   getJoke() {
-    this.jokeService.getJoke().subscribe(response => console.log(response));
+    // this.jokeService.getJoke().subscribe(response => console.log(response));
   } 
 }

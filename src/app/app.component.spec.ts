@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { JokeService } from './joke.service';
 import { ComponentFixture } from "@angular/core/testing";
 import { DebugElement } from "@angular/core";
+import { CapitalizePipe } from './capitalize.pipe';
 
 describe('AppComponent', () => {
 
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
   let el: DebugElement;
+  let pipeCapitalizer;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,6 +26,7 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance
     el = fixture.debugElement;
+    pipeCapitalizer = new CapitalizePipe();
   });
 
   it('should create the app', () => {
@@ -35,7 +38,9 @@ describe('AppComponent', () => {
   });
 
   it('should render title in a h1 tag', () => {
-    component.title = "chuck norris jokes";
+    component.title = "cHuCk noRRis jokEs";
+    fixture.detectChanges();
+    component.title = pipeCapitalizer.transform(component.title);
     fixture.detectChanges();
     expect(el.nativeElement.querySelector('h1').textContent).toContain('Chuck Norris Jokes');
   });
