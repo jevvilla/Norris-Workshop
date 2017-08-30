@@ -3,34 +3,40 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { JokeService } from './joke.service';
+import { ComponentFixture } from "@angular/core/testing";
+import { DebugElement } from "@angular/core";
 
 describe('AppComponent', () => {
+
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let el: DebugElement;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ HttpModule ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [ AppComponent ],
       providers:  [ JokeService ]
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  beforeEach(()=>{
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance
+    el = fixture.debugElement;
+  });
 
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+  });
 
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it(`should have as title 'Chuck Norris Jokes'`, () => {
+    expect(component.title).toEqual('Chuck Norris Jokes');
+  });
+
+  it('should render title in a h1 tag', () => {
+    component.title = "chuck norris jokes";
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  }));
+    expect(el.nativeElement.querySelector('h1').textContent).toContain('Chuck Norris Jokes');
+  });
 });

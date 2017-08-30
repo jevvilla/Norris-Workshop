@@ -13,7 +13,7 @@ export class JokeService {
 
   getJoke(): Observable<any> {
     return this.http.get(this.URL)
-                         .map(response => response.json().value.joke);
+               .map(response => response.json().value.joke);
   }
 
 }

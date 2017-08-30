@@ -4,10 +4,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { JokeService } from './joke.service';
+import { JokeComponent } from './joke/joke.component';
+import { CapitalizePipe } from './capitalize.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JokeComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

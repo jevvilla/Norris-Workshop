@@ -7,6 +7,8 @@ import { JokeService } from './joke.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  
+  title = 'Chuck Norris Jokes';
 
   constructor(private jokeService: JokeService){}
 
@@ -16,7 +18,5 @@ export class AppComponent implements OnInit {
 
   getJoke() {
     this.jokeService.getJoke().subscribe(response => console.log(response));
-  }
-
-  title = 'app';
+  } 
 }
