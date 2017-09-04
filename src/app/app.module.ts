@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { JokeService } from './joke.service';
 import { JokeComponent } from './joke/joke.component';
 import { CapitalizePipe } from './capitalize.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     JokeComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
